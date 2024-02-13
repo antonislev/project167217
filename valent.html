@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Will You Be My Valentine?</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #ffeced; /* Light Pink */
+            text-align: center;
+            position: relative;
+            margin: 0;
+            padding: 0;
+        }
+
+        h1 {
+            color: #cc005f; /* Dark Pink */
+            font-size: 32px;
+            margin-bottom: 20px;
+        }
+
+        p {
+            color: #cc005f; /* Dark Pink */
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+
+        button {
+            padding: 12px 24px;
+            border: none;
+            border-radius: 20px;
+            font-size: 18px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            background-color: #ff0055; /* Hot Pink */
+            color: white;
+            position: absolute;
+        }
+
+        #yesButton {
+            left: calc(50% - 150px);
+            top: 200px;
+        }
+
+        #noButton {
+            left: calc(50% + 50px);
+            top: 200px;
+        }
+
+        button:hover {
+            background-color: #ff3377; /* Lighter Pink */
+        }
+        #noButton {
+            position: absolute; /* or fixed */
+        }
+        .star {
+            position: absolute;
+            color: #ffd700; /* Gold */
+        }
+    </style>
+</head>
+<body>
+    <h1>GEIA SOU,ASTERI!</h1>
+    <p>EXOUME MIA ERWTISI GIA ESENA:</p>
+    <p>Will you be my Valentine? ❤️</p>
+    <button id="yesButton" onclick="respondYes()">Yes</button>
+   
+    <button id="noButton" onclick="respondNo()">No</button>
+
+    
+    
+        <script>
+            function respondYes() {
+                alert("H KALITERI MERA TIS ZWHS MOU! EISAI IPEROXI TA LEME STIS 14 ❤️");
+            }
+    
+            function respondNo() {
+            var buttonYes = document.getElementById('yesButton');
+            var currentSize = window.getComputedStyle(buttonYes).fontSize;
+            var newSize = parseInt(currentSize) + 10 + 'px';
+            buttonYes.style.fontSize = newSize;
+
+            var buttonNo = document.getElementById('noButton');
+            var newX = Math.random() * (window.innerWidth - buttonNo.offsetWidth);
+            var newY = Math.random() * (window.innerHeight - buttonNo.offsetHeight);
+            buttonNo.style.left = newX + 'px';
+            buttonNo.style.top = newY + 'px';
+        }
+        // Function to generate stars at random places on the screen
+        function generateStars() {
+            var numStars = 100; // Number of stars to generate
+            var screenWidth = window.innerWidth;
+            var screenHeight = window.innerHeight;
+            var container = document.body;
+
+            for (var i = 0; i < numStars; i++) {
+                var star = document.createElement('div');
+                star.className = 'star';
+                star.innerHTML = '★';
+                star.style.left = Math.random() * screenWidth + 'px';
+                star.style.top = Math.random() * screenHeight + 'px';
+                star.style.fontSize = Math.floor(Math.random() * 10 + 5) + 'px'; // Randomize star size
+                container.appendChild(star);
+            }
+        }
+
+        // Call the function to generate stars when the page loads
+        window.onload = function() {
+            generateStars();
+        };
+
+        </script>
+    </body>
+</html>
+
